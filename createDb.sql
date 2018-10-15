@@ -1,2 +1,2 @@
-DROP DATABASE some_app_name;
-CREATE DATABASE some_app_name;
+DROP DATABASE mixtape_db;
+CREATE DATABASE mixtape_db;
