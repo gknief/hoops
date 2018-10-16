@@ -43,6 +43,7 @@ export default class Players extends Component {
                     <option>Nikola Jokic</option>
                     <option>Karl-Anthony Towns</option>
                     <option>Victor Oladipo</option>
+                    <option>Rudy Gobert</option>
                     <option>Kristaps Porzingis</option>
                     <option>LaMarcus Aldridge</option>
                     <option>Klay Thompson</option>
@@ -57,20 +58,20 @@ export default class Players extends Component {
                     <option>CJ McCollum</option>
                     <option>Donovan Mitchell</option>
                     <option>Jayson Tatum</option>
+                    <option>Mike Conley</option>
+                    <option>Steven Adams</option>
+                    <option>Blake Griffin</option>
+                    <option>DeAndre Jordan</option>
+                    <option>Andre Drummond</option>
+                    <option>Jaylen Brown</option>
+                    <option>Devin Booker</option>
+                    <option>Eric Bledsoe</option>
+                    <option>Jamal Murray</option>
+                    <option>Brandon Ingram</option>
+                    <option>Trae Young</option>
+                    <option>Lonzo Ball</option>
+                    <option>Dennis Smith Jr.</option>
                     {/* <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
                     <option></option>
                     <option></option>
                     <option></option>
