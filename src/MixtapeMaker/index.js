@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import './style.css';
 import Players from "../Players";
 import Rappers from "../Rappers";
+import PlayersRappers from "../PlayersRappers";
+import Highlights from "../Highlights";
+import Tracks from "../Tracks";
 import youtubeSearch from "youtube-search";
 
 const search = require('youtube-search');
@@ -19,11 +22,19 @@ export default class MixtapeMaker extends Component {
 
       componentDidMount = () => {
           this.setState({
-              playerQuery: this.props.favoritePlayer,
-              rapperQuery: this.props.favoriteRapper
+              playerQuery: `${this.props.favoritePlayer} mixtape`,
+              rapperQuery: `${this.props.favoriteRapper} songs`
           });
       }
-      
+
+    searchByKeyword = () => {
+        const results = YouTube.Search.list('id,snippet', {q: `${this.props.favoritePlayer} mixtape`, maxResults: 25});
+        for(let i in results.items) {
+          const item = results.items[i];
+          Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
+        }
+      }
+
     render() {
         const API_KEY = 'AIzaSyC-ocaepWDYQl0M1Byxgz0MZ6nxtOmmQSw';
         // const opts = {
@@ -35,8 +46,9 @@ export default class MixtapeMaker extends Component {
         <div className="mixtape-maker">
           <h1 className="mixtape-header">Mixtape</h1>
           <h1>Give your mixtape some heat</h1>
-            <Players favoritePlayer={this.props.favoritePlayer} />
-            <button className='rappers-button'><Link to='/rappers'>{this.props.favoriteRapper} Tracks</Link></button>
+            <Highlights />
+            <Tracks />
+            <Link to='/mixtape'><button className='generate-mixtape'>Generate Mixtape</button></Link>
         </div>
       )
     }

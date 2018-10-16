@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import "./style.css";
+import Home from "../Home";
 import Players from "../Players";
 import Rappers from "../Rappers";
 import PlayersRappers from "../PlayersRappers";
@@ -15,14 +16,12 @@ class App extends Component {
         <Router>
         <div className="App">
           <Route exact path="/" component={Home} />
-          <Route exact path="/players" component={PlayersRappers} />
+          <Route exact path="/PlayersRappers" component={PlayersRappers} />
           <Route exact path="/MixtapeMaker" component={MixtapeMaker} />
-          <Route exact path="/players/highlights" component={Highlights} />
-          <Route exact path="/rappers/tracks" component={Tracks} />
           <Route exact path="/mixtape" component={Mixtape} />
-        </div>;
+        </div>
         </Router>
-    )
+    );
   }
 }
 

@@ -7,16 +7,23 @@ export default class Rappers extends Component {
         super(props)
 
         this.state = {
-            favoritePlayer: '',
-            favoriteRapper: ''
+            favoriteRapper: 'Drake'
         }
     }
+
+    onInputChange = e => {
+        const favoriteRapper = e.target;
+        this.setState({
+          [favoriteRapper.name]: favoriteRapper.value
+        })
+    }
+
     render() {
         return (
             <div className="rappers-container">
-                <h1 className="home-header">Rappers</h1>
+                <h1 className="rappers-header">Rappers</h1>
                 <h2>Which rapper do you want on your mixtape?</h2>
-                <select name="favoritePlayer" onChange={this.onInputChange}>
+                <select name="favoriteRapper" onChange={this.onInputChange}>
                     <option>Drake</option>
                     <option>Future</option>
                     <option>Travis Scott</option>
@@ -69,8 +76,6 @@ export default class Rappers extends Component {
                     <option>Young M.A.</option>
                     <option>Lil Pump</option>
                 </select>
-                <button className='players-button'><Link to='/players'>Players</Link></button>
-                <button className='rappers-button'><Link to='/rappers'>Rappers</Link></button>
             </div>
         )
     }

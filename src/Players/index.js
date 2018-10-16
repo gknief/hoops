@@ -7,8 +7,7 @@ export default class Players extends Component {
         super(props)
 
         this.state = {
-            favoritePlayer: '',
-            favoriteRapper: ''
+            favoritePlayer: 'LeBron James'
         }
     }
 
@@ -80,7 +79,6 @@ export default class Players extends Component {
                     <option></option> */}
 
                 </select>
-                <button className='rappers-button'><Link to='/rappers'>Rappers</Link></button>
             </div>
         )
     }

@@ -21,7 +21,7 @@ export default class Home extends Component {
           <img className="logo" src="../images/m.png" />
           <h1 className="home-header">Mixtape</h1>
           <h1>Home for the hip hop and the hoops community.</h1>
-            <button className='get-started'><Link to='/MixtapeMaker'>Players</Link></button>
+            <button className='get-started'><Link to='/PlayersRappers'>Get Started</Link></button>
             {/* <button className='players-button'><Link to='/players'>Players</Link></button>
             <button className='rappers-button'><Link to='/rappers'>Rappers</Link></button> */}
         </div>
