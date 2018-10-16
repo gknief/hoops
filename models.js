@@ -7,7 +7,7 @@ const sequelize = new Sequelize({
 
 const Player = sequelize.define('player', {
     name: Sequelize.TEXT,
-    imageUrl: Sequelize.TEXT
+    image_url: Sequelize.TEXT
 });
 
 const Highlight = sequelize.define('highlight', {
@@ -17,7 +17,7 @@ const Highlight = sequelize.define('highlight', {
 
 const Rapper = sequelize.define('rapper', {
     name: Sequelize.TEXT,
-    imageUrl: Sequelize.TEXT
+    image_url: Sequelize.TEXT
 });
 
 const Track = sequelize.define('track', {

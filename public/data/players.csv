@@ -1,5 +1,5 @@
-Name,ImageUrl
-LeBron James,https://i0.wp.com/www.thebasketballnetwork.com/wp-content/uploads/2018/10/USATSI_11356139.jpg?fit=3566%2C2374&ssl=1
+name,image_url,video_url
+LeBron James,https://i0.wp.com/www.thebasketballnetwork.com/wp-content/uploads/2018/10/USATSI_11356139.jpg?fit=3566%2C2374&ssl=1,<iframe width="560" height="315" src="https://www.youtube.com/embed/yZUUItxjpz4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 Kevin Durant,https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2017/12/05/golden-state-warriors-forward-kevin-durant..jpg
 Stephen Curry,https://usathoopshype.files.wordpress.com/2017/06/gettyimages-651937002.jpg?w=1000&h=600&crop=1
 James Harden,https://d1u4oo4rb13yy8.cloudfront.net/article/85041-fkghyaukji-1521614422.jpg
@@ -24,9 +24,9 @@ Kyle Lowry,https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Fairala
 John Wall,https://www.nbcsports.com/washington/sites/csnma/files/2016/04/25/usatsi_8464469.jpg
 Gordon Hayward,http://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2017%2F1017%2Fr275459_1296x729_16%2D9.jpg
 Ben Simmons,https://s.newsweek.com/sites/www.newsweek.com/files/styles/embed-lg/public/2018/05/31/ben-simmons.jpg
-Bradley Beal,https://i.kinja-img.com/gawker-media/image/upload/s--lVCORfCf--/c_scale,f_auto,fl_progressive,q_80,w_800/zdmmtoilqwv5globhkaq.jpg
+Bradley Beal,https://s3.amazonaws.com/ontapwp/wp-content/uploads/2016/09/BradeleyBeal.jpg
 DeMar DeRozan,https://sportshub.cbsistatic.com/i/r/2018/09/26/c559ad3f-1aa5-4671-b50c-8ae97324194d/thumbnail/770x433/ffe1dbeb8c46adf6ced6f6f67226b59b/usatsi-11310511.jpg
-Kevin Love,https://i.kinja-img.com/gawker-media/image/upload/s--kWjYaLSh--/c_scale,f_auto,fl_progressive,q_80,w_800/yiypmcrojc4vdfqq6s2q.jpg
+Kevin Love,http://images.performgroup.com/di/library/omnisport/59/fc/kevin-love_1obkdumvd5b0m15kuhc5piyafh.jpg?t=-1134111725&w=960&quality=70
 Kemba Walker,https://media.gq.com/photos/559ee0c25f1c7af15a1ef24e/master/pass/GettyImages-459625290.jpg
 CJ McCollum,http://images.performgroup.com/di/library/omnisport/61/f8/mccollum-cj-getty-ftr_1bsgwrz9ksowd1gpklacn87fkg.jpg?t=1610218378&w=960&quality=70
 Donovan Mitchell,https://www.yardbarker.com/media/b/a/ba4aef537e3881ce6e331e3f0992865efdb96013/thumb_16x9/USATSI_10423293.jpg
