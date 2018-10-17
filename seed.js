@@ -18,7 +18,8 @@ const main = async () => {
       for (let i = 0; i < jsonArrayRappers.length; i++) {
         const Rappers = await Rapper.create({
           name: jsonArrayRappers[i].name,
-          image_url: jsonArrayRappers[i].image_url
+          image_url: jsonArrayRappers[i].image_url,
+          video_url: jsonArrayRappers[i].video_url
         });
       }
   

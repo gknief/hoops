@@ -11,8 +11,8 @@ export default class Home extends Component {
         super(props)
     
         this.state = {
-          favoritePlayer: '',
-          favoriteRapper: ''
+          player: '',
+          rapper: ''
         }
       }
     render() {

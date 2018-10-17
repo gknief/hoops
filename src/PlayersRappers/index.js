@@ -9,25 +9,20 @@ export default class PlayersRappers extends Component {
         super(props)
 
         this.state = {
-            favoritePlayer: '',
-            favoriteRapper: ''
         }
-    }
-
-    submit = () => {
-        this.setState({
-            favoritePlayer: this.favoritePlayer,
-            favoriteRapper: this.favoriteRapper
-        })
     }
 
     render() {
         return (
             <div className="players-rappers">
                 <h1 className="player-rapper-header">Choose a Player and a Rapper for your Mixtape</h1>
-                <Players />
-                <Rappers />
-                <Link to='/MixtapeMaker'><button type="button" onClick={this.submit} className="add-player-rapper">Apply to Mixtape</button></Link>
+                <Players
+                player={this.props.player} players={this.props.players} onPickPlayer={this.props.onPickPlayer}
+                />
+                <Rappers
+                rapper={this.props.rapper} rappers={this.props.rappers} onPickRapper={this.props.onPickRapper}
+                />
+                <Link to='/MixtapeMaker'><button type="button" className="add-player-rapper">Apply to Mixtape</button></Link>
             </div>
         )
     }

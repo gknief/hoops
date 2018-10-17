@@ -14,41 +14,25 @@ export default class MixtapeMaker extends Component {
     constructor(props) {
         super(props)
     
-        this.state = {
-          playerQuery: '',
-          rapperQuery: ''
-        }
       }
 
       componentDidMount = () => {
-          this.setState({
-              playerQuery: `${this.props.favoritePlayer} mixtape`,
-              rapperQuery: `${this.props.favoriteRapper} songs`
-          });
-      }
-
-    searchByKeyword = () => {
-        const results = YouTube.Search.list('id,snippet', {q: `${this.props.favoritePlayer} mixtape`, maxResults: 25});
-        for(let i in results.items) {
-          const item = results.items[i];
-          Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-        }
+          console.log(this.props.player)
+        
       }
 
     render() {
-        const API_KEY = 'AIzaSyC-ocaepWDYQl0M1Byxgz0MZ6nxtOmmQSw';
-        // const opts = {
-        //     maxResults: 10,
-        //     key: 'AIzaSyC-ocaepWDYQl0M1Byxgz0MZ6nxtOmmQSw'
-        // };
+      // const API_KEY = 'AIzaSyC-ocaepWDYQl0M1Byxgz0MZ6nxtOmmQSw';
 
       return (
         <div className="mixtape-maker">
           <h1 className="mixtape-header">Mixtape</h1>
-          <h1>Give your mixtape some heat</h1>
+          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${this.props.player.video_url}&amp;autoplay=1&amp;mute=1`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe width="0" height="0" src={`https://www.youtube.com/embed/${this.props.rapper.video_url}&amp;autoplay=1&amp;mute=0`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          {/* <h1>Make your own mixtape</h1>
             <Highlights />
             <Tracks />
-            <Link to='/mixtape'><button className='generate-mixtape'>Generate Mixtape</button></Link>
+            <Link to='/mixtape'><button className='generate-mixtape'>Generate Mixtape</button></Link> */}
         </div>
       )
     }

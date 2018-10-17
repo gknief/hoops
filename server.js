@@ -12,11 +12,6 @@ app.get('/api/players', async (request, response) => {
     response.json(players);
 });
 
-app.post('/api/players', async (request, response) => {
-    const players = await Player.findAll({});
-    response.json(players);
-});
-
 app.get('/api/rappers', async (request, response) => {
     const rappers = await Rapper.findAll({});
     response.json(rappers);

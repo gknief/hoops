@@ -13,13 +13,13 @@ export default class Tracks extends Component {
         }
     }
 
-searchByKeyword = () => {
-    const results = YouTube.Search.list('id,snippet', {q: `${this.props.favoriteRapper} songs`, maxResults: 25});
-    for(let i in results.items) {
-      const item = results.items[i];
-      Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-    }
-  }
+// searchByKeyword = () => {
+//     const results = YouTube.Search.list('id,snippet', {q: `${this.props.favoriteRapper} songs`, maxResults: 25});
+//     for(let i in results.items) {
+//       const item = results.items[i];
+//       Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
+//     }
+//   }
 
   render() {
     return (
