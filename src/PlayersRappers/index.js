@@ -22,7 +22,7 @@ export default class PlayersRappers extends Component {
                 <Rappers
                 rapper={this.props.rapper} rappers={this.props.rappers} onPickRapper={this.props.onPickRapper}
                 />
-                <Link to='/MixtapeMaker'><button type="button" className="add-player-rapper">Apply to Mixtape</button></Link>
+                <Link to='/mixtape'><button type="button" className="add-player-rapper">Apply to Mixtape</button></Link>
             </div>
         )
     }

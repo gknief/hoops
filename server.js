@@ -17,18 +17,71 @@ app.get('/api/rappers', async (request, response) => {
     response.json(rappers);
 });
 
-app.delete('/api/:id/admin', async (request, response) => {
-    const playerId = request.params.id
-    const sequelizeOptions = {};
-    sequelizeOptions.include = {
-      model: Player,
-      where: {
-        id: playerId,
-      },
-      attributes: []
+app.post('/api/players', async (request, response) => {
+  console.log(request.body, 'pp')
+  const newPlayer = {
+    name: request.body.name,
+    image_url: request.body.image_url,
+    video_url: request.body.video_url
+  };
+  const player = await Player.create(newPlayer);
+  response.json(player);
+});
+
+app.put("/api/players/:id", async (request, response) => {
+  const id = request.params.id;
+  const player = await Player.findOne({
+    where: {
+      id: id
     }
-    await Player.destroy();
   });
+  if (request.body.name) {
+    player.name = request.body.name;
+  }
+  if (request.body.image_url) {
+    player.image_url = request.body.image_url;
+  }
+  if (request.body.video_url) {
+    player.video_url = request.body.video_url;
+  }
+  await player.save();
+  response.json(player);
+});
+
+app.delete('/api/players/:id', async (request, response) => {
+  const id = request.params.id;
+  await Player.destroy({
+    where: {
+      id: id
+    }
+  });
+  response.sendStatus(200);
+});
+
+//   const { name, image_url, video_url } = request.body;
+
+// app.post('/api/CreateMixtape', async (request, response) => {
+//   if (!name || !image_url || !video_url) {
+//     response.status(400).json({
+//       error: "Please complete the form"
+//     });
+//     return;
+//   }
+// });
+
+
+// app.delete('/api/:id/admin', async (request, response) => {
+//     const playerId = request.params.id
+//     const sequelizeOptions = {};
+//     sequelizeOptions.include = {
+//       model: Player,
+//       where: {
+//         id: playerId,
+//       },
+//       attributes: []
+//     }
+//     await Player.destroy();
+//   });
   
 
 app.listen(PORT, () => {

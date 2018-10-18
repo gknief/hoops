@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddRapperForm from "../AddRapperForm";
 import './style.css';
 
 export default class Rappers extends Component {

@@ -11,10 +11,10 @@ const Player = sequelize.define('player', {
     video_url: Sequelize.TEXT
 });
 
-const Highlight = sequelize.define('highlight', {
-    highlight_name: Sequelize.TEXT,
-    highlight_url: Sequelize.TEXT
-});
+// const Highlight = sequelize.define('highlight', {
+//     highlight_name: Sequelize.TEXT,
+//     highlight_url: Sequelize.TEXT
+// });
 
 const Rapper = sequelize.define('rapper', {
     name: Sequelize.TEXT,
@@ -22,22 +22,22 @@ const Rapper = sequelize.define('rapper', {
     video_url: Sequelize.TEXT
 });
 
-const Track = sequelize.define('track', {
-    track_name: Sequelize.TEXT,
-    track_url: Sequelize.TEXT
-});
+// const Track = sequelize.define('track', {
+//     track_name: Sequelize.TEXT,
+//     track_url: Sequelize.TEXT
+// });
 
-Player.hasMany(Highlight);
-Highlight.belongsTo(Player);
-Rapper.hasMany(Track);
-Track.belongsTo(Rapper);
+// Player.hasMany(Highlight);
+// Highlight.belongsTo(Player);
+// Rapper.hasMany(Track);
+// Track.belongsTo(Rapper);
 
 
 
 module.exports = {
   Player,
-  Highlight,
+//   Highlight,
   Rapper,
-  Track,
+//   Track,
   sequelize: sequelize
 };
