@@ -9,6 +9,7 @@ import Mixtape from "../Mixtape";
 import AddPlayerForm from "../AddPlayerForm";
 import AddRapperForm from "../AddRapperForm";
 import MixtapeMaker from "../MixtapeMaker";
+import UpdatePlayer from "../UpdatePlayer";
 
 class App extends Component {
   constructor(props) {
@@ -87,11 +88,41 @@ class App extends Component {
       body: body,
       headers: {
         'Content-Type': 'application/json',
-
       }
     });
     const newPlayer = await addPlayer.json();
     console.log(newPlayer)
+  }
+
+  onPlayerUpdate = async (e) => {
+    e.preventDefault();
+    // THIS WAS THE PROBLEM
+    // e.preventDefault();
+    const body = await JSON.stringify({
+      name: this.state.playerName,
+      image_url: this.state.playerImage,
+      video_url: this.state.playerVideo
+    });
+    const updatePlayer = await fetch(`/api/players/${this.state.player.id}`, {
+      method: 'PUT',
+      body: body,
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    await updatePlayer.json();
+    
+  }
+
+  onPlayerDelete = async () => {
+    const player = await fetch(`/api/players/${this.state.player.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    
+    console.log('123');
   }
 
   onRapperSubmit = e => {
@@ -190,7 +221,9 @@ class App extends Component {
           <Route exact path="/rappers" render={(props) => <Rappers {...props} onPickRapper={this.onPickRapper} rapper={this.state.rapper} rappers={this.state.rappers} />} /> */}
           <Route 
             exact path="/PlayersRappers" 
-            render={(props) => <PlayersRappers {...props} onPickPlayer={this.onPickPlayer} onPickRapper={this.onPickRapper} player={this.state.player} players={this.state.players} rapper={this.state.rapper} rappers={this.state.rappers} />}
+            render={(props) => <PlayersRappers {...props} onPickPlayer={this.onPickPlayer} onPickRapper={this.onPickRapper} player={this.state.player} players={this.state.players} rapper={this.state.rapper} rappers={this.state.rappers} onPlayerDelete={this.onPlayerDelete} />}
+          />
+          <Route exact path="/players" render={(props) => <Players {...props} player={this.state.player} players={this.state.players} onPlayerDelete={this.onPlayerDelete} onPickPlayer={this.onPickPlayer} />}
           />
           <Route exact path="/mixtape" render={(props) => <Mixtape {...props} player={this.state.player} rapper={this.state.rapper} />}
           />
@@ -199,6 +232,10 @@ class App extends Component {
           <Route exact path="/AddRapper" render={(props) => <AddRapperForm {...props} onRapperSubmit={this.onRapperSubmit} onRapperNameChange={this.onRapperNameChange} onRapperImageChange={this.onRapperImageChange} onRapperVideoChange={this.onRapperVideoChange} rapperName={this.state.rapperName} rapperImage={this.state.rapperImage} rapperVideo={this.state.rapperVideo} />}
           />
           <Route exact path="/MixtapeMaker" component={MixtapeMaker} />
+          <Route 
+            exact path="/UpdatePlayer" 
+            render={(props) => <UpdatePlayer {...props} onPlayerUpdate={this.onPlayerUpdate} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} player={this.state.player} players={this.state.players} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} />}
+          />
         </div>
         </Router>
     );

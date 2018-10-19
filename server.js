@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Player, Highlight, Rapper, Track } = require('./models');
+const { Player, Rapper } = require('./models');
 const PORT = process.env.PORT || 5678;
 
 const app = express();
@@ -18,7 +18,7 @@ app.get('/api/rappers', async (request, response) => {
 });
 
 app.post('/api/players', async (request, response) => {
-  console.log(request.body, 'pp')
+  console.log(request.body)
   const newPlayer = {
     name: request.body.name,
     image_url: request.body.image_url,
@@ -29,24 +29,35 @@ app.post('/api/players', async (request, response) => {
 });
 
 app.put("/api/players/:id", async (request, response) => {
-  const id = request.params.id;
+  const playerId = request.params.id;
   const player = await Player.findOne({
     where: {
-      id: id
+      id: playerId
+    }});
+    if (request.body.name !== '') {
+      player.name = request.body.name
     }
-  });
-  if (request.body.name) {
-    player.name = request.body.name;
-  }
-  if (request.body.image_url) {
-    player.image_url = request.body.image_url;
-  }
-  if (request.body.video_url) {
-    player.video_url = request.body.video_url;
-  }
-  await player.save();
-  response.json(player);
+    if (request.body.image_url !== '') {
+      player.image_url = request.body.image_url
+    }
+    if (request.body.video_url !== '') {
+      player.video_url = request.body.video_url
+    }
+      await player.save();
+      response.sendStatus(200);
 });
+   
+  // if (request.body.name) {
+  //   name = request.body.name;
+  // }
+  // if (request.body.image_url) {
+  //   image_url = request.body.image_url;
+  // }
+  // if (request.body.video_url) {
+  //   video_url = request.body.video_url;
+  // }
+  // await editPlayer.update();
+  // response.json(editPlayer);
 
 app.delete('/api/players/:id', async (request, response) => {
   const id = request.params.id;
@@ -55,7 +66,7 @@ app.delete('/api/players/:id', async (request, response) => {
       id: id
     }
   });
-  response.sendStatus(200);
+    response.sendStatus(200);
 });
 
 //   const { name, image_url, video_url } = request.body;

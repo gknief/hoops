@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import './style.css';
 import Players from "../Players";
 import Rappers from "../Rappers";
+import UpdatePlayer from "../UpdatePlayer";
 
 export default class PlayersRappers extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ export default class PlayersRappers extends Component {
             <div className="players-rappers">
                 <h1 className="player-rapper-header">Choose a Player and a Rapper for your Mixtape</h1>
                 <Players
-                player={this.props.player} players={this.props.players} onPickPlayer={this.props.onPickPlayer}
+                player={this.props.player} players={this.props.players} onPickPlayer={this.props.onPickPlayer} onPlayerDelete={this.props.onPlayerDelete}
                 />
                 <Rappers
                 rapper={this.props.rapper} rappers={this.props.rappers} onPickRapper={this.props.onPickRapper}

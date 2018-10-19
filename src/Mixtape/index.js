@@ -7,6 +7,7 @@ import PlayersRappers from "../PlayersRappers";
 import AddPlayerForm from "../AddPlayerForm";
 import AddRapperForm from "../AddRapperForm";
 import youtubeSearch from "youtube-search";
+import UpdatePlayer from "../UpdatePlayer";
 
 const search = require('youtube-search');
 
