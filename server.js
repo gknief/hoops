@@ -47,7 +47,7 @@ app.put("/api/players/:id", async (request, response) => {
       player.video_url = request.body.video_url
     }
       await player.save();
-      response.sendStatus(200);
+      response.status(200).send('Player updated');
 });
    
   // if (request.body.name) {
@@ -69,33 +69,9 @@ app.delete('/api/players/:id', async (request, response) => {
       id: id
     }
   });
-    response.sendStatus(200);
+    response.status(200).send('Player deleted');
 });
 
-//   const { name, image_url, video_url } = request.body;
-
-// app.post('/api/CreateMixtape', async (request, response) => {
-//   if (!name || !image_url || !video_url) {
-//     response.status(400).json({
-//       error: "Please complete the form"
-//     });
-//     return;
-//   }
-// });
-
-
-// app.delete('/api/:id/admin', async (request, response) => {
-//     const playerId = request.params.id
-//     const sequelizeOptions = {};
-//     sequelizeOptions.include = {
-//       model: Player,
-//       where: {
-//         id: playerId,
-//       },
-//       attributes: []
-//     }
-//     await Player.destroy();
-//   });
 
 if (process.env.NODE_ENV == "production") {
   app.get("/*", function(request, response) {

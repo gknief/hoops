@@ -19,19 +19,17 @@ export default class UpdatePlayer extends Component {
     }
   }
 
-
   render() {
     return (
-      // UPDATE
     <div className="update-player-container">
+     <form onSubmit={this.props.onPlayerUpdate}>
       <div className="update-player-form">
-        <form onSubmit={this.props.onPlayerUpdate}>
           <p className="update-player-form-paragraph">Name: <input type="text" name="playerName" onChange={this.props.onPlayerNameChange} value={this.props.playerName} /></p>
           <p className="update-player-form-paragraph">Image Source: <input type="text" name="playerImage" onChange={this.props.onPlayerImageChange} value={this.props.playerImage} /></p>
           <p className="update-player-form-paragraph">Video Source: <input type="text" name="playerVideo" onChange={this.props.onPlayerVideoChange} value={this.props.playerVideo} /></p>
           <p className="update-player-form-paragraph"><input type="submit" value="Update" /></p>
-        </form>
-      </div>
+       </div>
+      </form>
     </div>
     );
   }

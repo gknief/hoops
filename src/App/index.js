@@ -17,7 +17,7 @@ class App extends Component {
 
     this.state = {
       players: [],
-      player: {id: 1, name: "LeBron James", image_url: "https://i0.wp.com/www.thebasketballnetwork.com/wp-…2018/10/USATSI_11356139.jpg?fit=3566%2C2374&ssl=1", video_url: "tqxz4BrYsCQ?rel=0&amp;controls=0&amp;showinfo=0&amp;start=30"},
+      player: '',
       rappers: [],
       rapper: '',
       playerName: '',
@@ -50,7 +50,10 @@ class App extends Component {
     console.log(this.state.players[playerIndex]);
     
     this.setState({
-      player: this.state.players[playerIndex]
+      player: this.state.players[playerIndex],
+      playerName: this.state.players[playerIndex].name,
+      playerImage: this.state.players[playerIndex].image_url,
+      playerVideo: this.state.players[playerIndex].video_url
     }, () => {
       console.log(this.state.player.video_url);
     })
@@ -96,8 +99,6 @@ class App extends Component {
 
   onPlayerUpdate = async (e) => {
     e.preventDefault();
-    // THIS WAS THE PROBLEM
-    // e.preventDefault();
     const body = await JSON.stringify({
       name: this.state.playerName,
       image_url: this.state.playerImage,
@@ -135,6 +136,8 @@ class App extends Component {
   }
 
   onPlayerNameChange = e => {
+    console.log('name changing');
+    
     this.setState({
       playerName: e.target.value
     });
@@ -147,6 +150,8 @@ class App extends Component {
   }
 
   onPlayerVideoChange = e => {
+    console.log(';aldjs;flajsdlkfjasld;');
+    
     this.setState({
       playerVideo: e.target.value
     });
@@ -169,6 +174,7 @@ class App extends Component {
       rapperVideo: e.target.value
     });
   }
+
 
   // createMixtape = async e => {
   //   e.preventDefault();

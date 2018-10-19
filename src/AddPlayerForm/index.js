@@ -27,12 +27,11 @@ export default class AddPlayerForm extends Component {
     }
 
     render() {
-        // const API_KEY = 'AIzaSyC-ocaepWDYQl0M1Byxgz0MZ6nxtOmmQSw';
 
         return (
             <div className="add-player-form">
                 <form onSubmit={this.props.onPlayerSubmit}>
-                    <p className="add-player-form-paragraph">Name: <input type="text" name="playerName" onChange={this.props.onPlayerNameChange} value={this.props.playerName} /></p>
+                    <p className="add-player-form-paragraph">Name: <input type="text" name="playerName" onChange={this.props.onPlayerNameChange} value={this.props.playerName} placeholder="hello" /></p>
                     <p className="add-player-form-paragraph">Image Source: <input type="text" name="playerImage" onChange={this.props.onPlayerImageChange} value={this.props.playerImage} /></p>
                     <p className="add-player-form-paragraph">Video Source: <input type="text" name="playerVideo" onChange={this.props.onPlayerVideoChange} value={this.props.playerVideo} /></p>
                     <p className="add-player-form-paragraph"><input type="submit" value="Add" /></p>
