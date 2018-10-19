@@ -1,9 +1,12 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Player, Rapper } = require('./models');
 const PORT = process.env.PORT || 5678;
 
 const app = express();
+
+app.use("/", express.static("./build/"));
 
 app.use(bodyParser.json());
 
@@ -93,7 +96,12 @@ app.delete('/api/players/:id', async (request, response) => {
 //     }
 //     await Player.destroy();
 //   });
-  
+
+if (process.env.NODE_ENV == "production") {
+  app.get("/*", function(request, response) {
+    response.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);

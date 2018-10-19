@@ -17,7 +17,7 @@ class App extends Component {
 
     this.state = {
       players: [],
-      player: '',
+      player: {id: 1, name: "LeBron James", image_url: "https://i0.wp.com/www.thebasketballnetwork.com/wp-…2018/10/USATSI_11356139.jpg?fit=3566%2C2374&ssl=1", video_url: "tqxz4BrYsCQ?rel=0&amp;controls=0&amp;showinfo=0&amp;start=30"},
       rappers: [],
       rapper: '',
       playerName: '',
@@ -66,7 +66,7 @@ class App extends Component {
     this.setState({
       rapper: this.state.rappers[rapperIndex]
     }, () => {
-      console.log(this.state.rapper.video_url);
+      console.log(this.state.rapper);
     })
   }
 
