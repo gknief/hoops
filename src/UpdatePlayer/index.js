@@ -28,6 +28,7 @@ export default class UpdatePlayer extends Component {
           <p className="update-player-form-paragraph">Image Source: <input type="text" name="playerImage" onChange={this.props.onPlayerImageChange} value={this.props.playerImage} /></p>
           <p className="update-player-form-paragraph">Video Source: <input type="text" name="playerVideo" onChange={this.props.onPlayerVideoChange} value={this.props.playerVideo} /></p>
           <p className="update-player-form-paragraph"><input type="submit" value="Update" /></p>
+          <Link to={'/PlayersRappers'}><p className="update-player-form-paragraph"><input type="submit" value="Go Back" /></p></Link>
        </div>
       </form>
     </div>

@@ -25,7 +25,8 @@ class App extends Component {
       playerVideo: '',
       rapperName: '',
       rapperImage: '',
-      rapperVideo: ''
+      rapperVideo: '',
+      playerUpdated: false
     }
   }
 
@@ -33,22 +34,22 @@ class App extends Component {
     const requestRappers = await fetch('/api/rappers');
     const jsonRappers = await requestRappers.json()
     this.setState({
-        rappers: jsonRappers,
+      rappers: jsonRappers,
     })
     const requestPlayers = await fetch('/api/players');
     const jsonPlayers = await requestPlayers.json()
     this.setState({
-        players: jsonPlayers,
+      players: jsonPlayers,
     })
-}
+  }
 
   onPickPlayer = e => {
     const player = e.target.value;
-    
+
     const playerIndex = this.state.players.findIndex(player => player.name === e.target.value); // 3
-    
+
     console.log(this.state.players[playerIndex]);
-    
+
     this.setState({
       player: this.state.players[playerIndex],
       playerName: this.state.players[playerIndex].name,
@@ -61,11 +62,11 @@ class App extends Component {
 
   onPickRapper = e => {
     const rapper = e.target.value;
-    
+
     const rapperIndex = this.state.rappers.findIndex(rapper => rapper.name === e.target.value); // 3
-    
+
     console.log(this.state.rappers[rapperIndex]);
-   
+
     this.setState({
       rapper: this.state.rappers[rapperIndex]
     }, () => {
@@ -104,6 +105,13 @@ class App extends Component {
       image_url: this.state.playerImage,
       video_url: this.state.playerVideo
     });
+    if (this.state.playerName === '') {
+      alert('Please enter a player name');
+    } else if (this.state.playerImage === '') {
+      alert('Please enter an image url');
+    } else if (this.state.playerVideo === '') {
+      alert('Please enter a video url')
+    } else {
     const updatePlayer = await fetch(`/api/players/${this.state.player.id}`, {
       method: 'PUT',
       body: body,
@@ -111,8 +119,14 @@ class App extends Component {
         'Content-Type': 'application/json',
       }
     });
-    await updatePlayer.json();
+    alert('Player updated successfully')
+    this.setState({
+      playerUpdated: true
+    })
     
+      await updatePlayer.json();
+      
+  }
   }
 
   onPlayerDelete = async () => {
@@ -122,7 +136,7 @@ class App extends Component {
         'Content-Type': 'application/json',
       }
     });
-    
+
     console.log('123');
   }
 
@@ -137,7 +151,7 @@ class App extends Component {
 
   onPlayerNameChange = e => {
     console.log('name changing');
-    
+
     this.setState({
       playerName: e.target.value
     });
@@ -151,7 +165,7 @@ class App extends Component {
 
   onPlayerVideoChange = e => {
     console.log(';aldjs;flajsdlkfjasld;');
-    
+
     this.setState({
       playerVideo: e.target.value
     });
@@ -182,7 +196,7 @@ class App extends Component {
   //     name: this.state.player.name,
   //     image_url: this.state.player.image_url,
   //     video_url: this.state.player.video_url,
-  
+
   // })
 
   //   if (this.state.player.name === '') {
@@ -218,15 +232,15 @@ class App extends Component {
 
   render() {
     return (
-        <Router>
+      <Router>
         <div className="App">
           <Route exact path="/" component={Home} />
           {/* <Route exact path="/players" 
             render={(props) => <Players {...props} onPickPlayer={this.onPickPlayer} player={this.state.player} players={this.state.players} />} 
           />
           <Route exact path="/rappers" render={(props) => <Rappers {...props} onPickRapper={this.onPickRapper} rapper={this.state.rapper} rappers={this.state.rappers} />} /> */}
-          <Route 
-            exact path="/PlayersRappers" 
+          <Route
+            exact path="/PlayersRappers"
             render={(props) => <PlayersRappers {...props} onPickPlayer={this.onPickPlayer} onPickRapper={this.onPickRapper} player={this.state.player} players={this.state.players} rapper={this.state.rapper} rappers={this.state.rappers} onPlayerDelete={this.onPlayerDelete} />}
           />
           <Route exact path="/players" render={(props) => <Players {...props} player={this.state.player} players={this.state.players} onPlayerDelete={this.onPlayerDelete} onPickPlayer={this.onPickPlayer} />}
@@ -238,12 +252,12 @@ class App extends Component {
           <Route exact path="/AddRapper" render={(props) => <AddRapperForm {...props} onRapperSubmit={this.onRapperSubmit} onRapperNameChange={this.onRapperNameChange} onRapperImageChange={this.onRapperImageChange} onRapperVideoChange={this.onRapperVideoChange} rapperName={this.state.rapperName} rapperImage={this.state.rapperImage} rapperVideo={this.state.rapperVideo} />}
           />
           <Route exact path="/MixtapeMaker" component={MixtapeMaker} />
-          <Route 
-            exact path="/UpdatePlayer" 
-            render={(props) => <UpdatePlayer {...props} onPlayerUpdate={this.onPlayerUpdate} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} player={this.state.player} players={this.state.players} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} />}
+          <Route
+            exact path="/UpdatePlayer"
+            render={(props) => <UpdatePlayer {...props} onPlayerUpdate={this.onPlayerUpdate} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} player={this.state.player} players={this.state.players} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} playerUpdated={this.state.playerUpdated} />}
           />
         </div>
-        </Router>
+      </Router>
     );
   }
 }
