@@ -197,6 +197,23 @@ class App extends Component {
     });
   }
 
+  onCreateNewMixtape =  async () => {
+    const requestRappers = await fetch('/api/rappers');
+    const jsonRappers = await requestRappers.json()
+    this.setState({
+      rappers: jsonRappers,
+    })
+    const requestPlayers = await fetch('/api/players');
+    const jsonPlayers = await requestPlayers.json()
+    this.setState({
+      players: jsonPlayers,
+    })
+    this.setState({
+      player: this.state.players[0],
+      rapper: this.state.rappers[0]
+    })
+  }
+
 
 
   render() {
@@ -214,7 +231,7 @@ class App extends Component {
           />
           <Route exact path="/players" render={(props) => <Players {...props} player={this.state.player} players={this.state.players} onPlayerDelete={this.onPlayerDelete} onPickPlayer={this.onPickPlayer} />}
           />
-          <Route exact path="/mixtape" render={(props) => <Mixtape {...props} player={this.state.player} players={this.state.players} rapper={this.state.rapper} rappers={this.state.rappers} playerName={this.state.playerName} rapperName={this.state.rapperName} />}
+          <Route exact path="/mixtape" render={(props) => <Mixtape {...props} player={this.state.player} players={this.state.players} rapper={this.state.rapper} rappers={this.state.rappers} playerName={this.state.playerName} rapperName={this.state.rapperName} onCreateNewMixtape={this.onCreateNewMixtape} />}
           />
           <Route exact path="/AddPlayer" render={(props) => <AddPlayerForm {...props} onPlayerSubmit={this.onPlayerSubmit} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} />}
           />

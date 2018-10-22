@@ -156,6 +156,7 @@ select {
    position: absolute;
    top: 0;
    width: 100%;
+   margin-bottom: 10px;
 }
 
 .iframe-container iframe:hover {
@@ -164,9 +165,6 @@ select {
 
 /* Source: https://benmarshall.me/responsive-iframes/ */
 
-.mixtape-header {
-  text-align: center;
-}
 
 .image-container {
   margin-top: 30px;
@@ -276,4 +274,48 @@ li {
   background-color: goldenrod;
   border: 3px solid goldenrod;
   cursor: pointer;
+}
+
+span {
+  color: goldenrod;
+}
+
+.mixtape-header-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  align-content: flex-start;
+  overflow-y: scroll;
+}
+
+.mixtape-header {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 0;
+}
+
+.make-new-mixtape {
+  width: 150px;
+  height: 20px;
+  background-color: white;
+  border: 3px solid goldenrod;
+  border-radius: 25px;
+  position: relative;
+  top: -8px;
+  text-align: center;
+}
+
+.make-new-mixtape:hover {
+  width: 150px;
+  height: 20px;
+  background-color: goldenrod;
+  border: 3px solid goldenrod;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  top: -8px;
+  text-align: center;
 }

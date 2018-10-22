@@ -23,7 +23,10 @@ export default class Mixtape extends Component {
     render() {
       return (
         <div className="Mixtape">
-          <h1 className="mixtape-header">{this.props.playerName} | {this.props.rapperName}</h1>
+        <div className="mixtape-header-container">
+          <h1 className="mixtape-header"><span>{this.props.playerName}</span>  |  {this.props.rapperName}</h1>
+          <Link to='/PlayersRappers'><button className='make-new-mixtape' onClick={this.props.onCreateNewMixtape}>MAKE NEW MIXTAPE</button></Link>
+        </div>
           <div className="iframe-container">
           <iframe width="560" height="315" src={`https://www.youtube.com/embed/${this.props.player.video_url}&amp;autoplay=1&amp;mute=1`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
