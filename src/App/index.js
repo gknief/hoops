@@ -8,8 +8,7 @@ import PlayersRappers from "../PlayersRappers";
 import Mixtape from "../Mixtape";
 import AddPlayerForm from "../AddPlayerForm";
 import AddRapperForm from "../AddRapperForm";
-import MixtapeMaker from "../MixtapeMaker";
-import UpdatePlayer from "../UpdatePlayer";
+import Admin from "../Admin";
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +40,10 @@ class App extends Component {
     this.setState({
       players: jsonPlayers,
     })
+    this.setState({
+      player: this.state.players[0],
+      rapper: this.state.rappers[0]
+    })
   }
 
   onPickPlayer = e => {
@@ -68,17 +71,14 @@ class App extends Component {
     console.log(this.state.rappers[rapperIndex]);
 
     this.setState({
-      rapper: this.state.rappers[rapperIndex]
+      rapper: this.state.rappers[rapperIndex],
+      rapperName: this.state.rappers[rapperIndex].name,
+      rapperImage: this.state.rappers[rapperIndex].image_url,
+      rapperVideo: this.state.rappers[rapperIndex].video_url
     }, () => {
       console.log(this.state.rapper);
     })
   }
-
-  // onInputChange = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
 
   onPlayerSubmit = async (e) => {
     e.preventDefault();
@@ -87,6 +87,13 @@ class App extends Component {
       image_url: this.state.playerImage,
       video_url: this.state.playerVideo
     });
+    if (this.state.playerName === '') {
+      alert('Please enter a player name');
+    } else if (this.state.playerImage === '') {
+      alert('Please enter an image url');
+    } else if (this.state.playerVideo === '') {
+      alert('Please enter a video url')
+    } else {
     const addPlayer = await fetch('/api/players', {
       method: 'POST',
       body: body,
@@ -94,9 +101,10 @@ class App extends Component {
         'Content-Type': 'application/json',
       }
     });
-    const newPlayer = await addPlayer.json();
-    console.log(newPlayer)
+    alert('Player added successfully')
+    await addPlayer.json();
   }
+}
 
   onPlayerUpdate = async (e) => {
     e.preventDefault();
@@ -190,45 +198,6 @@ class App extends Component {
   }
 
 
-  // createMixtape = async e => {
-  //   e.preventDefault();
-  //   const requestBody = JSON.stringify({
-  //     name: this.state.player.name,
-  //     image_url: this.state.player.image_url,
-  //     video_url: this.state.player.video_url,
-
-  // })
-
-  //   if (this.state.player.name === '') {
-  //     alert('Please enter a player name');
-  //   } else if
-  //   (this.state.player.image_url === '') {
-  //     alert('Please enter an image url');
-  //   } else if
-  //   (this.state.player.video_url === '') {
-  //     alert('Please enter a video url')
-  //   } else {
-  //     const response = await fetch('api/CreateMixtape', {
-  //       method: 'POST',
-  //       body: requestBody,
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     });
-  //     const responseBody = await response.json();
-  //     console.log(responseBody);
-  //     // if (response.status === 409) {
-  //     //   this.setState({
-  //     //     errorMessage: responseBody.message
-  //     //   });
-  //     //   return;
-  //     // }
-  //     // localStorage.setItem('user_jwt', responseBody.token);
-  //     // this.setState({
-  //     //   isRegistered: true
-  //     // })
-  //   }
-  // }
 
   render() {
     return (
@@ -245,16 +214,15 @@ class App extends Component {
           />
           <Route exact path="/players" render={(props) => <Players {...props} player={this.state.player} players={this.state.players} onPlayerDelete={this.onPlayerDelete} onPickPlayer={this.onPickPlayer} />}
           />
-          <Route exact path="/mixtape" render={(props) => <Mixtape {...props} player={this.state.player} rapper={this.state.rapper} />}
+          <Route exact path="/mixtape" render={(props) => <Mixtape {...props} player={this.state.player} players={this.state.players} rapper={this.state.rapper} rappers={this.state.rappers} playerName={this.state.playerName} rapperName={this.state.rapperName} />}
           />
           <Route exact path="/AddPlayer" render={(props) => <AddPlayerForm {...props} onPlayerSubmit={this.onPlayerSubmit} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} />}
           />
           <Route exact path="/AddRapper" render={(props) => <AddRapperForm {...props} onRapperSubmit={this.onRapperSubmit} onRapperNameChange={this.onRapperNameChange} onRapperImageChange={this.onRapperImageChange} onRapperVideoChange={this.onRapperVideoChange} rapperName={this.state.rapperName} rapperImage={this.state.rapperImage} rapperVideo={this.state.rapperVideo} />}
           />
-          <Route exact path="/MixtapeMaker" component={MixtapeMaker} />
           <Route
-            exact path="/UpdatePlayer"
-            render={(props) => <UpdatePlayer {...props} onPlayerUpdate={this.onPlayerUpdate} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} player={this.state.player} players={this.state.players} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} playerUpdated={this.state.playerUpdated} />}
+            exact path="/admin"
+            render={(props) => <Admin {...props} onPlayerUpdate={this.onPlayerUpdate} onPlayerNameChange={this.onPlayerNameChange} onPlayerImageChange={this.onPlayerImageChange} onPlayerVideoChange={this.onPlayerVideoChange} player={this.state.player} players={this.state.players} playerName={this.state.playerName} playerImage={this.state.playerImage} playerVideo={this.state.playerVideo} playerUpdated={this.state.playerUpdated} onPlayerDelete={this.onPlayerDelete} onPickPlayer={this.onPickPlayer} />}
           />
         </div>
       </Router>

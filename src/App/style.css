@@ -1,8 +1,279 @@
 body {
   box-sizing: border-box;
   margin: 0 auto;
+  background-color: black;
+  color: white;
+  font-family: 'Jura', sans-serif;
 }
 
-h1 {
-  font-family: 'Montserrat Subrayada', sans-serif;
+.logo {
+  width: 30%;
+}
+
+.home-header {
+  font-size: 70px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+h2 {
+  font-family: 'Jura', sans-serif;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  align-content: flex-start;
+  overflow-y: scroll;
+}
+
+.slogan {
+  margin-top: -10px;
+}
+
+.get-started {
+  width: 200px;
+  height: 50px;
+  border: 5px solid goldenrod;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 23px;
+  margin-top: 50px;
+  font-family: 'Jura', sans-serif;
+}
+
+.mission-statement-container {
+  border-left: 2px solid goldenrod;
+  margin-left: 50px;
+  margin-top: 30px;
+  padding: 20px;
+  width: 800px;
+}
+
+.mission-statement {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 1.5;
+  padding-left: 30px;
+}
+
+.mission-statement-container h3 {
+  font-size: 18px;
+  font-weight: 100;
+  font-style: italic;
+  padding-left: 35px;
+  color: goldenrod;
+}
+
+.get-started a {
+  text-decoration: none;
+  color: black;
+}
+
+.get-started:hover {
+  text-decoration: none;
+  color: black;
+  background-color: goldenrod;
+}
+
+.player-rapper-header {
+  font-size: 45px;
+  padding: 0;
+}
+
+select {
+  width: 70%;
+  cursor: pointer;
+}
+
+.players-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.rappers-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.players-rappers-container {
+  width: 100%;
+  text-align: center;
+}
+
+.players-rappers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px;
+  border-top: 3px solid goldenrod;
+  border-bottom: 3px solid goldenrod;
+  margin-top: -15px;
+  padding-bottom: 28px;
+}
+
+.players-rappers-container img {
+  height: 220px;
+  width: 290px; 
+  box-sizing: border-box;
+}
+
+.player-image {
+  border-right: 2px solid goldenrod;
+}
+
+.rapper-image {
+  border-left: 2px solid goldenrod;
+} 
+
+.player-options {
+  
+}
+
+.player-selection {
+ 
+}
+
+.player-selection:hover {
+  background-color: black;
+}
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+.iframe-container iframe:hover {
+  pointer-events: none;
+}
+
+/* Source: https://benmarshall.me/responsive-iframes/ */
+
+.mixtape-header {
+  text-align: center;
+}
+
+.image-container {
+  margin-top: 30px;
+}
+
+.create-mixtape {
+  position: relative;
+  top: 65px;
+  width: 200px;
+  height: 30px;
+  background-color: white;
+  border: 3px solid goldenrod;
+  border-radius: 25px;
+}
+
+.create-mixtape:hover {
+  width: 200px;
+  height: 30px;
+  background-color: goldenrod;
+  border: 3px solid goldenrod;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.add-player-button {
+  width: 150px;
+  background-color: white;
+  border: 3px solid goldenrod;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+.add-player-button:hover {
+  width: 150px;
+  background-color: goldenrod;
+  border: 3px solid goldenrod;
+  border-radius: 25px;
+}
+
+.add-player-header {
+  margin-top: 40px;
+}
+
+.add-player-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  align-content: flex-start;
+  overflow-y: scroll;
+  padding: 15px;
+}
+
+.add-player-container h1 {
+  font-size: 35px;
+}
+
+.instructions {
+  border-top: 3px solid goldenrod;
+}
+
+.instructions h2 {
+  margin-left: 20px;
+}
+
+.image-instructions {
+  width: 30%;
+  height: auto;
+  padding: 10px;
+}
+
+.video-instructions {
+  width: 40%;
+  height: auto;
+  padding: 10px;
+}
+
+ul {
+  padding: 15px;
+  margin-left: 10px;
+}
+
+li {
+  padding: 3px;
+  width: 85%;
+}
+
+.add-player-form {
+  font-size: 20px;
+  font-family: 'Jura', sans-serif;
+}
+
+.add-player-page-button {
+  width: 100px;
+  border-radius: 25px;
+  margin-left: 75px;
+  background-color: white;
+  border: 3px solid goldenrod;
+}
+
+.add-player-page-button:hover {
+  width: 100px;
+  border-radius: 25px;
+  margin-left: 75px;
+  background-color: goldenrod;
+  border: 3px solid goldenrod;
+  cursor: pointer;
 }

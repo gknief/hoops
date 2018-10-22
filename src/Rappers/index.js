@@ -12,11 +12,10 @@ export default class Rappers extends Component {
     render() {
         return (
             <div className="rappers-container">
-                <h1 className="rappers-header">Rappers</h1>
-                <h2>Which rapper do you want on your mixtape?</h2>
-                <select name="rapper" onChange={this.props.onPickRapper}>
+                <h1 className="rappers-header">Choose a Song</h1>
+                <select className="rapper-options" name="rapper" onChange={this.props.onPickRapper}>
                 {this.props.rappers.map(rapper => {
-                    return <option key={rapper.id} value={rapper.name}>{rapper.name}</option>
+                    return <option key={rapper.id} value={rapper.name} onClick={this.props.onPickRapper}>{rapper.name}</option>
                 })}
                 </select>
             </div>
