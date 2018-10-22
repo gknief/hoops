@@ -24,7 +24,7 @@ export default class Mixtape extends Component {
       return (
         <div className="Mixtape">
         <div className="mixtape-header-container">
-          <h1 className="mixtape-header"><span>{this.props.playerName}</span>  |  {this.props.rapperName}</h1>
+          <h1 className="mixtape-header"><span>{this.props.player.name}</span>  |  {this.props.rapper.name}</h1>
           <Link to='/PlayersRappers'><button className='make-new-mixtape' onClick={this.props.onCreateNewMixtape}>MAKE NEW MIXTAPE</button></Link>
         </div>
           <div className="iframe-container">

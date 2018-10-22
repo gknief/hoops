@@ -24,7 +24,7 @@ export default class Admin extends Component {
       <h1>Admin</h1>
       </div>
         <div className="delete-player-container">
-          <select name="player" onChange={this.props.onPickPlayer}>
+          <select className="delete-player-select" name="player" onChange={this.props.onPickPlayer}>
             {this.props.players.map(player => {
               return <option key={player.id} value={player.name}>{player.name}</option>
             })}

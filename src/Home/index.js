@@ -17,7 +17,6 @@ export default class Home extends Component {
       return (
         <div className="home-container">
           <img className="logo" src="../images/logo.png" />
-          <h1 className="home-header">Mixtape</h1>
           <h2 className="slogan">Your favorite ballers paired with your favorite beats.</h2>
           <div className="mission-statement-container">
           <article className="mission-statement">I have always loved listening to hip-hop music and watching highlights of my favorite basketball players. But I wanted to be able to do both at the same time without YouTube pausing my music. With Mixtape, you can watch highlights of any player while listening to any song you want.</article>
